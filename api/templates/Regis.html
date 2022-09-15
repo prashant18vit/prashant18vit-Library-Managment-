@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Sign Up
+{% endblock %}
+
+{% block content %}
+<div class="signup-div card shadow-lg p-4 mt-4">
+  {{ msg }}
+  {% load crispy_forms_tags %}
+  
+    <div>
+      <h2>Admin Sign Up</h2>
+    </div>
+    <form action="{% url 'registration' %}" method="post">
+      {% csrf_token %}
+      {{ form | crispy }}
+      <button class="btn btn-success" type="submit">Sign Up</button>
+    </form>
+    <span>If you are already registered, <a href="{% url 'login' %}">click here to login</a>.</span>
+
+
+   
+  </div>
+{% endblock %}
